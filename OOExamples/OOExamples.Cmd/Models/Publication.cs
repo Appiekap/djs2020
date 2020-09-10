@@ -2,10 +2,10 @@
 
 namespace OOExamples.Cmd.Models
 {
-    public class Publication
+    public abstract class Publication
     {
         protected string title;
-        string text;
+        private string text;
 
         public virtual void Publish()
         {
@@ -16,5 +16,7 @@ namespace OOExamples.Cmd.Models
         {
             Console.WriteLine("Do Something!");
         }
+
+        public abstract void CleanPublication();
     }
 }

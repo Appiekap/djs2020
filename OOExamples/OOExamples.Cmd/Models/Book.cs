@@ -14,5 +14,10 @@ namespace OOExamples.Cmd.Models
         {
             Console.WriteLine("Publishing a book actually!");
         }
+
+        public override void CleanPublication()
+        {
+            Console.WriteLine("Cleaning the book!");
+        }
     }
 }

@@ -1,5 +1,7 @@
-﻿using OOExamples.Cmd.Models;
+﻿using OOExamples.Cmd.Data;
+using OOExamples.Cmd.Models;
 using System;
+using System.Collections.Generic;
 
 namespace OOExamples.Cmd
 {
@@ -19,12 +21,60 @@ namespace OOExamples.Cmd
             book.ReadBook();
             paper.Publish();
 
-
             // Encapsulation.
+
+            var test = new Test();
+            test.Description = "Something!";
+            Console.WriteLine(test.Description);
+
             // Polymorphism.
+
+            Publication bookTwo = new Book();
+            //bookTwo.ReadBook(); // method from book
+            if(bookTwo is Book)
+            {
+                ((Book)bookTwo).ReadBook();
+            }
+
+            bookTwo.Publish(); // method from publication
+            bookTwo.ToString(); // method from object
+
+            IList<Publication> publications = new List<Publication>();
+            publications.Add(new Book());
+            publications.Add(new Book());
+            publications.Add(new Paper());
+            publications.Add(new Paper());
+            publications.Add(new Comic());
+            publications.Add(new Comic());
+
+            foreach (var currentPublication in publications)
+            {
+                currentPublication.CleanPublication();
+                if (currentPublication is Comic)
+                {
+                    ((Comic)currentPublication).PutInZiplock();
+                }
+            }
+
             // Abstraction.
+            IDataConnection connection;
+            bool isTest = true;
 
+            if(isTest)
+            {
+                connection = new DummyFileConnection();
+            }    
+            else
+            {
+                connection = new DatabaseConnection();
+            }            
 
+            // code code code
+            connection.GetData();
+            // code code code
+            connection.PushData();
+
+            //var publication = new Publication(); not possible cause abstract.
         }
     }
 }
