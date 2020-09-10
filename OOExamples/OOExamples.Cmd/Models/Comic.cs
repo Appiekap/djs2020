@@ -4,6 +4,13 @@ namespace OOExamples.Cmd.Models
 {
     public class Comic : Publication
     {
+        public readonly string isbn = "sdf";
+
+        public Comic()
+        {
+            isbn = "sdf";
+        }
+
         public override void CleanPublication()
         {
             Console.WriteLine("Cleaning the comic!");
