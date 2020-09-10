@@ -7,6 +7,7 @@ namespace OOExamples.Cmd
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Welcome to OO");
         }
     }
 }
