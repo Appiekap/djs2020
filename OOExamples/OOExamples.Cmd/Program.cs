@@ -1,5 +1,6 @@
 ﻿using OOExamples.Cmd.Controllers;
 using OOExamples.Cmd.Data;
+using OOExamples.Cmd.Events;
 using OOExamples.Cmd.Exceptions;
 using OOExamples.Cmd.Models;
 using System;
@@ -164,6 +165,28 @@ namespace OOExamples.Cmd
                 // connection.Close();
                 Console.WriteLine("This happens regardless of exc or not");
             }
+
+            // Events
+
+            var counter = new Counter();
+            counter.GoalReached += CounterGoalReached;
+            counter.GoalReached += CounterGoalReachedAgain;
+            for(int i = 0; i < 20; i++)
+            {
+                Console.WriteLine("Adding one to the counter");
+                counter.Add(1);
+            }
+
+        }
+
+        private static void CounterGoalReachedAgain(object sender, CounterEvent e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        private static void CounterGoalReached(object sender, CounterEvent e)
+        {
+            Console.WriteLine("Counter reached its goal!");
         }
     }
 }
