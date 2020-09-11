@@ -1,4 +1,6 @@
-﻿using OOExamples.Cmd.Data;
+﻿using OOExamples.Cmd.Controllers;
+using OOExamples.Cmd.Data;
+using OOExamples.Cmd.Exceptions;
 using OOExamples.Cmd.Models;
 using System;
 using System.Collections.Generic;
@@ -102,8 +104,8 @@ namespace OOExamples.Cmd
 
             // User input.
 
-            Console.Write("Select Country (USA or BEL): ");
-            string country = Console.ReadLine();
+            //Console.Write("Select Country (USA or BEL): ");
+            //string country = Console.ReadLine();
 
             // Dictionary.
 
@@ -116,7 +118,7 @@ namespace OOExamples.Cmd
                 Console.WriteLine(string.Format("For key: {0} there is the value: {1}", kvp.Key, kvp.Value));
             }
 
-            //string country = "USA"; // user input
+            string country = "USA"; // user input
 
             var countries = new Dictionary<string, string>();
             countries.Add("USA", "Star Spangled Banner");
@@ -124,7 +126,44 @@ namespace OOExamples.Cmd
 
             Console.WriteLine(countries[country]);
 
+            // Exceptions
+            
+            var kennel = new Kennel();
+            var success = kennel.WalkBy();
+            if (!success)
+                Console.WriteLine("Could not walk by the kennel!");
 
+            var dog = new Dog();
+            try
+            {
+                dog.DoRoll();
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Roll Exception!");
+            }
+
+            // var connection = new DBConnection();
+            try
+            {
+                dog.ChewOnBone();
+                dog.ChewOnBone();
+                // connection.Connect();
+                // var result = connection.Execute("SELECT * FROM");
+            }
+            catch(NoBonesException ex)
+            {
+                Console.WriteLine("The dog is out of bones...");
+            }
+            finally
+            {
+                // connection.Close();
+                Console.WriteLine("This happens regardless of exc or not");
+            }
         }
     }
 }
