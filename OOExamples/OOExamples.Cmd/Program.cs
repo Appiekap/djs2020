@@ -177,6 +177,18 @@ namespace OOExamples.Cmd
                 counter.Add(1);
             }
 
+            // Types of .Net Core Projects.
+            // .NET Core Console
+            // ASP.NET Core
+                // MVC (actually uses razor for the frontend) <-- Focus
+                // Razorpages (razor html - class)
+                // Blazor
+                // ASP.NET API
+                // ASP.NET API - Angular Frontend / React Frontend
+            // Xamarin (Mobile)
+            // Windows Clients Apps (Windows Forms, WPF, UWP, GTK)
+            // IoT / Machine Learning (GPIO, ML.NET)
+
         }
 
         private static void CounterGoalReachedAgain(object sender, CounterEvent e)

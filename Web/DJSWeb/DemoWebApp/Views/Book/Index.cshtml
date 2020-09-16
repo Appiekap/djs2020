@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DemoWebApp.Models.Book>
+@{
+    ViewData["Title"] = "Book Overview";
+}
+
+<h1>Overview of Books</h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>Book ID</td>
+            <td>Book Title</td>
+            <td>Book Author</td>
+        </tr>        
+    </thead>
+
+    @foreach (var book in Model)
+    {
+    <tr>
+        <td>@book.Id</td>
+        <td>@book.Title</td>
+        <td>@book.Author</td>
+    </tr>
+    }
+
+</table>
