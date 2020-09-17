@@ -19,12 +19,13 @@ namespace DemoWebApp.Controllers
             };
 
             // TODO 17 september
-            // Display/Validation Book
             // Update Index Book
-            // Create Book
             // Creating Services for Dummy Books.
             // Types of services + Dependency Injection.
             // Async Await
+            // Display/Validation Book
+            // Create Book
+            // Other CRUD
         }
 
         public IActionResult Index()
