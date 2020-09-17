@@ -1,3 +1,7 @@
+using DemoWebApp.Business;
+using DemoWebApp.Business.Interfaces;
+using DemoWebApp.Services;
+using DemoWebApp.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +16,10 @@ namespace DemoWebApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // Our own services:
+            services.AddSingleton<IBookService, DummyBookService>();
+            services.AddScoped<IRentals, Rentals>();
+
             services.AddControllersWithViews();
 
             // used to add services to the runtime.
@@ -38,6 +46,8 @@ namespace DemoWebApp
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseHttpsRedirection();
 
             app.UseStaticFiles();
 

@@ -8,19 +8,21 @@
 <table>
     <thead>
         <tr>
-            <td>Book ID</td>
-            <td>Book Title</td>
-            <td>Book Author</td>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.Author)</th>
+            <th>@Html.DisplayNameFor(model => model.PublishedDate)</th>
         </tr>        
     </thead>
 
     @foreach (var book in Model)
     {
-    <tr>
-        <td>@book.Id</td>
-        <td>@book.Title</td>
-        <td>@book.Author</td>
-    </tr>
+<tr>
+    <td>@book.Id</td>
+    <td>@book.Title</td>
+    <td>@book.Author</td>
+    <td>@Html.DisplayFor(modelItem => book.PublishedDate)</td>
+</tr>
     }
 
 </table>

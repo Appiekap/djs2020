@@ -1,0 +1,39 @@
+﻿@model DemoWebApp.ViewModels.LatestRents
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+
+<p>Favorite Category: @Model.FavoriteCategory</p>
+
+<p>Currently Reading:</p>
+<p>
+    @Html.DisplayNameFor(model => Model.CurrentLoan.Title):@Model.CurrentLoan.Title
+    <br />
+    by @Model.CurrentLoan.Author
+</p>
+
+@if (Model.RecentLoans != null && Model.RecentLoans.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <td>Book ID</td>
+                <td>Book Title</td>
+                <td>Book Author</td>
+            </tr>
+        </thead>
+
+        @foreach (var book in Model.RecentLoans)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+            </tr>
+        }
+
+    </table>
+}
+

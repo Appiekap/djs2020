@@ -1,20 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-namespace DemoWebApp
+namespace WebApplication1
 {
     public class Program
     {
-
-        // TODO 17 september
-        // Update Index Book - DONE
-        // Creating Services for Dummy Books. DONE
-        // Types of services + Dependency Injection. DONE
-        // Async Await
-        // Display/Validation Book
-        // Create Book
-        // Other CRUD
-
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

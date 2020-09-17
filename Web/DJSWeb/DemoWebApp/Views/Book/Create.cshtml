@@ -1,0 +1,33 @@
+﻿@model DemoWebApp.Models.Book
+@{
+    ViewData["Title"] = "Book Creation";
+}
+
+<h1>Creation of a Book</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly"></div>
+    <br />
+    <br />
+    <!-- Title -->
+    <label asp-for="Title"></label>
+    <br />
+    <input asp-for="Title" />
+    <br />
+    <span asp-validation-for="Title"></span>
+    <br />
+    <br />
+    <!-- Author -->
+    <label asp-for="Author"></label>
+    <br />
+    <input asp-for="Author" />
+    <br />
+    <span asp-validation-for="Author"></span>
+    <!-- Submit -->
+    <input type="submit" value="Create" />
+</form>
+
+@section Scripts
+{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
